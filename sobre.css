@@ -1,0 +1,695 @@
+@import url('inicio.css');
+/* --- Variáveis de Cores --- */
+:root {
+    --ferrari-red: #DA291C;
+    --dark-primary: #0C0C0C;
+    --dark-secondary: #1A1A1A;
+    --text-light: #E0E0E0;
+    --text-subtle: #A0A0A0;
+    --accent-silver: #C0C0C0;
+
+    /* Novas variáveis para acessibilidade */
+    --focus-outline-color: #007bff; /* Azul brilhante para foco */
+    --hover-effect-light: rgba(255, 255, 255, 0.1);
+
+    /* Cores para Contraste Alto */
+    --high-contrast-bg: #FFFFFF;
+    --high-contrast-text: #000000;
+    --high-contrast-link: #0000FF;
+    --high-contrast-red: #FF0000; /* Para o vermelho ferrari no modo de alto contraste */
+}
+
+/* --- Geral para Poppins e Oswald e Acessibilidade Básica --- */
+body {
+    font-family: 'Abril Fatface', serif;
+    background-color: var(--dark-primary);
+    color: var(--text-light);
+    line-height: 1.6; /* Melhor legibilidade */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Para transições suaves de acessibilidade */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif; /* Fonte para títulos */
+    color: var(--text-light);
+    line-height: 1.2;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    transition: color 0.3s ease; /* Para transições suaves de acessibilidade */
+}
+
+a {
+    color: var(--ferrari-red); /* Cor padrão dos links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Estilo para links de foco (navegação por teclado) */
+*:focus-visible {
+    outline: 3px solid var(--focus-outline-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Estilo para o "Pular para o conteúdo principal" */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--ferrari-red);
+    color: white;
+    padding: 8px;
+    z-index: 1000;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: top 0.3s ease-in-out;
+    border-bottom-right-radius: 8px;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+
+
+
+
+/* --- Conteúdo Principal "Sobre Nós" - Mantido igual ao anterior --- */
+.about-us-content {
+    padding: 80px 100px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: var(--dark-primary);
+}
+
+.history-section-clean {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+    background-color: var(--dark-secondary);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history-image-clean {
+    flex: 1;
+    min-width: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.history-image-clean img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+.history-image-clean img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.history-text-clean {
+    flex: 1.5;
+    line-height: 1.8;
+}
+
+.history-text-clean h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
+    color: var(--ferrari-red);
+    margin-bottom: 25px;
+    letter-spacing: 1.8px;
+    text-shadow: 0 0 8px rgba(218, 41, 28, 0.5);
+}
+
+.history-text-clean p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15em;
+    color: var(--text-light);
+    margin-bottom: 1.5em;
+}
+
+.team-section {
+    text-align: center;
+    padding: 60px 0;
+    margin-bottom: 80px;
+}
+
+.team-section h2 {
+        font-family: 'Abril Fatface', serif;
+    font-size: 3em;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.team-grid-clean {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.team-member-card-clean {
+    background-color: var(--dark-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
+    width: 30%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member-card-clean::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(218, 41, 28, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-member-card-clean:hover::before {
+    opacity: 1;
+}
+
+.team-member-card-clean:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+    background-color: #222222;
+}
+
+.team-member-card-clean img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 4px solid var(--ferrari-red);
+    margin-bottom: 25px;
+    filter: brightness(0.7);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.team-member-card-clean:hover img {
+    filter: brightness(1);
+    transform: scale(1.03);
+}
+
+.team-member-card-clean h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8em;
+    color: var(--ferrari-red);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(218, 41, 28, 0.3);
+}
+
+.team-member-card-clean span {
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    font-size: 1em;
+    color: var(--accent-silver);
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.extra-content-section {
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 80px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.05);
+    padding-top: 80px;
+}
+
+.extra-content-section h2 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 3em;
+    color: var(--text-light);
+    margin-bottom: 50px;
+    letter-spacing: 2.5px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.commitment-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.commitment-item {
+    background-color: var(--dark-secondary);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    width: 30%;
+    min-width: 300px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.commitment-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+    background-color: #222222;
+}
+
+.commitment-item .icon {
+    font-size: 4em;
+    color: var(--ferrari-red);
+    margin-bottom: 25px;
+    text-shadow: 0 0 12px rgba(218, 41, 28, 0.7);
+    transition: transform 0.3s ease;
+}
+
+.commitment-item:hover .icon {
+    transform: scale(1.1);
+}
+
+.commitment-item h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.commitment-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05em;
+    color: var(--text-subtle);
+    line-height: 1.7;
+}
+
+/* --- Rodapé  --- */
+.clean-footer {
+    background-color: var(--dark-primary);
+    padding: 40px 0;
+    border-top: 2px solid var(--ferrari-red);
+    text-align: center;
+    color: var(--text-subtle);
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.6);
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-content-clean {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.clean-footer p {
+    font-size: 0.95em;
+    margin: 0;
+    color: var(--text-subtle);
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-social-icons a {
+    color: var(--accent-silver);
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.2s ease;
+    
+}
+
+.footer-social-icons a:hover {
+    
+    transform: translateY(-4px) scale(1.1);
+}
+
+
+.accessibility-widget {
+    position: fixed;
+    right: 20px; 
+    bottom: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;  
+}
+
+.accessibility-widget button {
+    background-color: var(--ferrari-red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 10px; 
+}
+
+.accessibility-widget button:hover {
+    background-color: #e03f33;  
+    transform: scale(1.05);
+}
+
+.accessibility-panel {
+    background-color: var(--dark-secondary);
+    border-radius: 12px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 220px; 
+    max-height: 0;
+    overflow: hidden; 
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.4s ease-out;
+    opacity: 0;
+    pointer-events: none; 
+}
+
+.accessibility-panel.is-visible {
+    max-height: 400px; /* Altura máxima para mostrar todo o conteúdo */
+    padding: 15px;
+    opacity: 1;
+    pointer-events: auto; /* Permite cliques quando visível */
+}
+
+.accessibility-option {
+    background-color: var(--dark-primary);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 15px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+.accessibility-option i {
+    color: var(--ferrari-red); 
+    font-size: 1.2em;
+}
+
+.accessibility-option:hover {
+    background-color: #2a2a2a; 
+    transform: translateX(5px);
+    color: var(--ferrari-red); 
+}
+
+
+
+
+body.large-font {
+    font-size: 1.15em; /* Aumenta a fonte base */
+}
+body.large-font h1 { font-size: 4.5em; }
+body.large-font h2 { font-size: 3.5em; }
+body.large-font h3 { font-size: 2.2em; }
+body.large-font p { font-size: 1.25em; }
+body.large-font .accessibility-option { font-size: 1.05em; }
+body.large-font .footer-content-clean p { font-size: 1em; }
+
+
+/* Modo de Alto Contraste */
+body.high-contrast {
+    background-color: var(--high-contrast-bg) !important;
+    color: var(--high-contrast-text) !important;
+}
+body.high-contrast header,
+body.high-contrast .history-section-clean,
+body.high-contrast .team-member-card-clean,
+body.high-contrast .extra-content-section,
+body.high-contrast .commitment-item,
+body.high-contrast .clean-footer,
+body.high-contrast .accessibility-panel {
+    background-color: var(--high-contrast-bg) !important;
+    color: var(--high-contrast-text) !important;
+    border-color: var(--high-contrast-text) !important;
+    box-shadow: none !important; /* Remove sombras para clareza */
+}
+body.high-contrast h1, body.high-contrast h2, body.high-contrast h3, body.high-contrast h4, body.high-contrast h5, body.high-contrast h6 {
+    color: var(--high-contrast-text) !important;
+    text-shadow: none !important;
+}
+body.high-contrast a, body.high-contrast .accessibility-option i, body.high-contrast .commitment-item .icon {
+    color: var(--high-contrast-link) !important; /* Links em azul padrão */
+    text-shadow: none !important;
+}
+body.high-contrast a.active {
+    color: var(--high-contrast-link) !important;
+}
+body.high-contrast *:focus-visible {
+    outline: 3px solid var(--high-contrast-link) !important;
+    outline-offset: 2px !important;
+}
+body.high-contrast .team-member-card-clean img {
+    filter: grayscale(100%) contrast(200%) !important; /* Imagens em alto contraste */
+    border-bottom-color: var(--high-contrast-link) !important;
+}
+body.high-contrast .accessibility-widget button {
+    background-color: var(--high-contrast-link) !important;
+    color: var(--high-contrast-text) !important;
+    box-shadow: none !important;
+}
+body.high-contrast .accessibility-widget button:hover {
+    background-color: var(--high-contrast-text) !important;
+    color: var(--high-contrast-link) !important;
+}
+body.high-contrast .accessibility-option {
+    background-color: var(--high-contrast-bg) !important;
+    color: var(--high-contrast-text) !important;
+    border-color: var(--high-contrast-text) !important;
+}
+body.high-contrast .accessibility-option:hover {
+    background-color: var(--high-contrast-text) !important;
+    color: var(--high-contrast-link) !important;
+}
+
+
+/* Destacar Links */
+body.highlight-links a {
+    background-color: rgba(255, 255, 0, 0.4); /* Fundo amarelo suave */
+    border-bottom: 2px solid yellow;
+    padding: 2px 0;
+}
+body.highlight-links a:hover {
+    background-color: rgba(255, 255, 0, 0.6);
+}
+
+/* Escala de Cinza */
+body.grayscale-mode {
+    filter: grayscale(100%);
+}
+
+
+/* --- Responsividade Aprimorada com Acessibilidade --- */
+
+@media (max-width: 1200px) {
+    header {
+        padding: 15px 50px;
+    }
+    .about-us-content {
+        padding: 60px 50px 80px;
+    }
+    .history-section-clean {
+        flex-direction: column;
+        gap: 40px;
+        padding: 30px;
+    }
+    .history-image-clean {
+        min-width: unset;
+        width: 100%;
+    }
+    .history-image-clean img {
+        height: 350px;
+    }
+    .history-text-clean h2, .team-section h2, .extra-content-section h2 {
+        font-size: 2.5em;
+    }
+    .history-text-clean p {
+        font-size: 1em;
+    }
+    .team-grid-clean, .commitment-grid {
+        gap: 20px;
+    }
+    .team-member-card-clean, .commitment-item {
+        width: 45%;
+    }
+    .team-member-card-clean img {
+        height: 250px;
+    }
+    .team-member-card-clean h3 {
+        font-size: 1.6em;
+    }
+    .commitment-item .icon {
+        font-size: 3.5em;
+    }
+    .commitment-item h3 {
+        font-size: 1.7em;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    header nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header nav ul li a {
+        font-size: 1.1em;
+    }
+
+    .about-us-content {
+        padding: 40px 20px 60px;
+    }
+    .history-section-clean {
+        padding: 25px;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .history-image-clean img {
+        height: 280px;
+    }
+    .history-text-clean h2, .team-section h2, .extra-content-section h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    .history-text-clean p {
+        font-size: 0.95em;
+    }
+    .team-section, .extra-content-section {
+        padding: 40px 0;
+        margin-bottom: 40px;
+    }
+    .team-grid-clean, .commitment-grid {
+        gap: 20px;
+    }
+    .team-member-card-clean, .commitment-item {
+        width: 95%;
+        min-width: unset;
+        padding: 25px;
+    }
+    .team-member-card-clean img {
+        height: 200px;
+    }
+    .team-member-card-clean h3 {
+        font-size: 1.4em;
+    }
+    .commitment-item .icon {
+        font-size: 3em;
+    }
+    .commitment-item h3 {
+        font-size: 1.5em;
+    }
+    .clean-footer {
+        padding: 25px 0;
+    }
+    .footer-social-icons {
+        gap: 20px;
+        font-size: 1.6em;
+    }
+
+    /* Ajuste para o widget em telas menores */
+    .accessibility-widget {
+        right: 15px;
+        bottom: 15px;
+    }
+    .accessibility-widget button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+    }
+    .accessibility-panel {
+        width: 180px; /* Painel menor */
+    }
+    .accessibility-option {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-content {
+        padding: 30px 15px 40px;
+    }
+    .history-section-clean {
+        padding: 20px;
+        gap: 20px;
+    }
+    .history-image-clean img {
+        height: 220px;
+    }
+    .history-text-clean h2, .team-section h2, .extra-content-section h2 {
+        font-size: 1.7em;
+        margin-bottom: 20px;
+    }
+    .history-text-clean p {
+        font-size: 0.88em;
+    }
+    .team-member-card-clean img {
+        height: 180px;
+    }
+    .team-member-card-clean h3 {
+        font-size: 1.2em;
+    }
+    .team-member-card-clean span {
+        font-size: 0.85em;
+    }
+    .commitment-item .icon {
+        font-size: 2.5em;
+    }
+    .commitment-item h3 {
+        font-size: 1.3em;
+    }
+    .clean-footer p {
+        font-size: 0.85em;
+    }
+    .footer-social-icons {
+        gap: 15px;
+        font-size: 1.4em;
+    }
+}

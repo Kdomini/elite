@@ -1,0 +1,618 @@
+/* === Variáveis de Cores - Centralize para facilitar mudanças === */
+:root {
+    --ferrari-red: #DA291C; /* Vermelho clássico Ferrari */
+    --dark-primary: #0C0C0C; /* Preto profundo para fundo */
+    --dark-secondary: #1A1A1A; /* Cinza escuro para seções/cards */
+    --text-light: #E0E0E0; /* Texto claro principal */
+    --text-subtle: #A0A0A0; /* Texto sutil para parágrafos */
+    --accent-silver: #C0C0C0; /* Prata para detalhes */
+
+    /* HEADER */
+    --dark-bg-header: #0C0C0C;
+    --subtle-text-header: #888888;
+    --accent-red-header: #D32F2F;
+    --accent-glow-header: rgba(211, 47, 47, 0.4);
+    --border-subtle-header: rgba(255, 255, 255, 0.08);
+    --shadow-deep-header: rgba(0, 0, 0, 0.7);
+
+    /* Fontes header */
+    --font-heading-header: 'Cinzel', serif;
+    --font-body-header: 'Montserrat', sans-serif;
+    --font-nav-header: 'Oswald', sans-serif;
+}
+
+/* === Reset básico e estilos globais === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--dark-primary);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--text-light);
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === Cabeçalho === */
+.header {
+    background-color: var(--dark-bg-header);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 12px var(--shadow-deep-header);
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.header.scrolled {
+    padding: 10px 40px;
+    background-color: rgba(12, 12, 12, 0.95);
+    box-shadow: 0 2px 8px var(--shadow-deep-header);
+}
+
+.logo img {
+    max-height: 80px;
+    filter: drop-shadow(0 0 10px var(--accent-glow-header));
+    transition: filter 0.3s ease;
+}
+
+.logo img:hover {
+    filter: drop-shadow(0 0 20px var(--accent-red-header));
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 40px;
+}
+
+nav ul li a {
+    font-family: var(--font-nav-header);
+    font-weight: 500;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    position: relative;
+    padding-bottom: 6px;
+    color: var(--subtle-text-header);
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--text-light);
+    transform: translateY(-3px);
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-red-header);
+    transition: width 0.3s ease-out;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 10px 22px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--accent-red-header);
+    color: white;
+    box-shadow: 0 4px 10px var(--accent-glow-header);
+}
+
+.btn-primary:hover {
+    background-color: #E53935;
+    box-shadow: 0 6px 15px var(--accent-glow-header);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-light);
+    border-color: var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-light);
+    color: var(--dark-primary);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* === Seção Hero (Imagem Principal) === */
+.img-principal {
+    width: 100%;
+    height: 60vh;
+    min-height: 450px;
+    background: url('nublado2.jpg') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.img-principal-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.img-principal-overlay h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 4.5em;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    animation: fadeInDown 1s ease-out;
+}
+
+.img-principal-overlay p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4em;
+    max-width: 700px;
+    margin-bottom: 30px;
+    opacity: 0; /* inicia invisível pra animar */
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+
+.img-principal-overlay .btn-cta {
+    display: inline-block;
+    background-color: var(--ferrari-red);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(218, 41, 28, 0.5);
+    animation: zoomIn 1s ease-out 0.4s forwards;
+    opacity: 0; /* inicia invisível pra animar */
+}
+
+.img-principal-overlay .btn-cta:hover {
+    background-color: #E53935;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(218, 41, 28, 0.7);
+}
+
+/* === Animações === */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* === Seção Sobre Nós === */
+.about-us {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--dark-primary);
+    color: var(--text-light);
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 10px;
+}
+
+.about-us h2 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 3em;
+    margin-bottom: 25px;
+    color: var(--ferrari-red);
+    text-shadow: 0 0 10px rgba(218, 41, 28, 0.4);
+}
+
+.about-us p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: var(--text-subtle);
+}
+
+/* === Seção Carros em Destaque === */
+.featured-cars {
+    padding: 80px 0;
+    background-color: var(--dark-secondary);
+    text-align: center;
+}
+
+.featured-cars h2 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: var(--text-light);
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.car-thumbnail {
+    background-color: var(--dark-primary);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 20px;
+}
+
+.car-thumbnail:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(218, 41, 28, 0.3);
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+    position: relative;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+}
+
+.carousel-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: var(--ferrari-red);
+}
+
+.carousel-nav .prev-btn {
+    left: 10px;
+}
+
+.carousel-nav .next-btn {
+    right: 10px;
+}
+
+.car-thumbnail p {
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.6em;
+    color: var(--ferrari-red);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.car-thumbnail span {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px rgba(139, 126, 126, 0.4);
+}
+
+.car-thumbnail .btn-details {
+    display: inline-block;
+    background-color: var(--text-light);
+    color: var(--dark-primary);
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.car-thumbnail .btn-details:hover {
+    background-color: var(--ferrari-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(70, 61, 61, 0.3);
+}
+
+/* === Rodapé === */
+footer {
+    background-color: var(--dark-secondary);
+    padding: 40px 0;
+    border-top: 1px solid var(--ferrari-red);
+    text-align: center;
+    color: var(--text-subtle);
+    box-shadow: inset 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+footer p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    color: var(--text-subtle);
+}
+
+footer .social-links {
+    margin-bottom: 20px;
+}
+
+footer .social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 32px;
+    color: var(--text-subtle);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    transform: translateY(-4px) scale(1.1);
+}
+
+/* === Responsividade === */
+@media (max-width: 1024px) {
+    header {
+        padding: 15px 50px;
+    }
+    .logo img {
+        max-height: 70px;
+    }
+    nav ul li {
+        margin-left: 30px;
+    }
+    nav ul li a {
+        font-size: 1em;
+    }
+    .img-principal-overlay h1 {
+        font-size: 3.8em;
+    }
+    .img-principal-overlay p {
+        font-size: 1.2em;
+    }
+    .img-principal-overlay .btn-cta {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    .about-us h2 {
+        font-size: 2.5em;
+    }
+    .about-us p {
+        font-size: 1em;
+    }
+    .featured-cars h2 {
+        font-size: 2.5em;
+    }
+    .cars-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    .car-thumbnail p {
+        font-size: 1.6em;
+    }
+    .car-thumbnail span {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        text-align: center;
+    }
+    .logo {
+        margin-bottom: 15px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    nav ul li {
+        margin: 0;
+    }
+    .header-actions {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        max-width: 250px;
+    }
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+    .img-principal {
+        height: 50vh;
+        min-height: 350px;
+    }
+    .img-principal-overlay h1 {
+        font-size: 3em;
+    }
+    .img-principal-overlay p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+    .img-principal-overlay .btn-cta {
+        padding: 10px 25px;
+        font-size: 0.9em;
+    }
+    .about-us {
+        padding: 60px 20px;
+        margin: 30px auto;
+    }
+    .about-us h2 {
+        font-size: 2em;
+    }
+    .featured-cars {
+        padding: 60px 0;
+    }
+    .featured-cars h2 {
+        font-size: 2em;
+        margin-bottom: 40px;
+    }
+    .cars-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .car-thumbnail p {
+        font-size: 1.5em;
+    }
+    .car-thumbnail span {
+        font-size: 0.9em;
+    }
+    footer {
+        padding: 30px 0;
+    }
+    footer .social-links a {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        max-height: 60px;
+    }
+    nav ul li a {
+        font-size: 0.9em;
+    }
+    .img-principal {
+        height: 40vh;
+        min-height: 280px;
+    }
+    .img-principal-overlay h1 {
+        font-size: 2.5em;
+    }
+    .img-principal-overlay p {
+        font-size: 0.9em;
+    }
+    .img-principal-overlay .btn-cta {
+        padding: 8px 20px;
+        font-size: 0.8em;
+    }
+    .about-us {
+        padding: 40px 15px;
+        margin: 20px auto;
+    }
+    .about-us h2 {
+        font-size: 1.8em;
+    }
+    .featured-cars {
+        padding: 40px 0;
+    }
+    .featured-cars h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .car-thumbnail p {
+        font-size: 1.3em;
+    }
+    .car-thumbnail span {
+        font-size: 0.85em;
+    }
+    .car-thumbnail .btn-details {
+        padding: 8px 20px;
+        font-size: 0.85em;
+    }
+    footer .social-links a {
+        font-size: 24px;
+    }
+}

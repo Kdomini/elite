@@ -1,0 +1,269 @@
+
+@import url('inicio.css');
+
+
+/* Hero Section para Páginas Internas */
+.page-hero {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+    background-color: var(--dark-primary);
+}
+
+.financiamento-hero {
+    background-image: url('yuvraj-singh-tmAynVA_ihE-unsplash.jpg');
+    background-size: cover;
+    background-position: center 100%;
+    background-repeat: no-repeat;
+    height:70vh;
+}
+
+.page-hero-overlay h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 5.0em;
+    font-weight: 400;
+    margin-bottom: 22px;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 30px rgba(82, 69, 69, 0.95);
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.page-hero-overlay p {
+    font-family: 'Abril Fatface', serif;
+    font-size: 2.0em;
+    max-width: 750px;
+    color: var(--text-light);
+    line-height: 1.2;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+/* Conteúdo da Seção de Financiamento */
+.finance-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px 100px;
+    max-width: 1400px;
+    margin: 0 auto 80px auto;
+}
+
+.text-block {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left;
+    padding: 20px;
+}
+
+.text-block h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
+    color: var(--ferrari-red);
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(218, 41, 28, 0.4);
+}
+
+.text-block h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8em;
+    color: var(--text-light);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+.text-block p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05em;
+    color: var(--text-subtle);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.text-block ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.text-block ul li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.text-block ul li::before {
+    content: '›';
+    color: var(--ferrari-red);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.2em;
+    top: -2px;
+}
+
+/* Formulário de Financiamento */
+.finance-form-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: var(--dark-secondary);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    border: 1px solid #222;
+    text-align: left;
+}
+
+.finance-form-container h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5em;
+    color: var(--ferrari-red);
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1.5px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group textarea:focus {
+    border-color: var(--ferrari-red);
+    box-shadow: 0 0 0 3px rgba(75, 30, 30, 0.3);
+    outline: none;
+}
+
+.form-group textarea {
+    /* Altura fixa para a caixa de texto e desativa o redimensionamento */
+    min-height: 150px;
+    max-height: 150px;
+    resize: none; /* Impede o usuário de redimensionar a caixa */
+}
+
+.finance-form .btn-cta {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1em;
+    margin-top: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-primary);
+    padding: 40px 0;
+    border-top: 1px solid var(--ferrari-red);
+    text-align: center;
+    color: var(--text-subtle);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    color: var(--text-subtle);
+}
+
+footer .social-links {
+    margin-bottom: 20px;
+}
+
+footer .social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 32px;
+    transition: all 0.3s ease;
+}
+
+footer .social-links a .fab {
+    color: var(--text-subtle);
+    filter: brightness(0.8);
+    transition: all 0.3s ease;
+}
+
+footer .social-links a:hover .fab {
+   transform: translateY(-3px);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .finance-content { padding: 60px 50px; gap: 40px; }
+    .text-block h2 { font-size: 2.5em; }
+    .finance-form-container h2 { font-size: 2.2em; }
+}
+
+@media (max-width: 768px) {
+    .page-hero-overlay h1 { font-size: 3.5em; }
+    .page-hero-overlay p { font-size: 1.4em; }
+    .finance-content {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+    .text-block, .finance-form-container {
+        min-width: unset;
+        max-width: 100%;
+        padding: 30px;
+    }
+    .text-block h2, .finance-form-container h2 { font-size: 2em; text-align: center;}
+    footer .social-links a { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+    .page-hero-overlay h1 { font-size: 2.5em; }
+    .page-hero-overlay p { font-size: 1.1em; }
+    .finance-content { padding: 30px 15px; gap: 20px; }
+    .text-block h2, .finance-form-container h2 { font-size: 1.8em; }
+    .form-group input, .form-group textarea { padding: 12px; font-size: 0.9em; }
+    .finance-form .btn-cta { padding: 12px; font-size: 0.9em; }
+    footer p { font-size: 0.8em; }
+    footer .social-links a { font-size: 24px; }
+}

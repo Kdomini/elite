@@ -1,0 +1,363 @@
+
+@import url('inicio.css');
+
+
+
+:root {
+    --dark-primary: #0A0A0A;
+    --dark-secondary: #1A1A1A; 
+    --text-light: #FFFFFF; 
+    --text-subtle: #CCCCCC; 
+    
+    --accent-charcoal: #36454F; 
+    --ferrari-red-subtle: #8B0000; 
+}
+
+/* Hero Section */
+.page-hero {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+    background-color: var(--dark-primary);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.page-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.page-hero-overlay h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 5.0em; 
+    letter-spacing: 0.1em; 
+    text-shadow: 0 0 40px rgba(94, 90, 90, 0.9); 
+    color: var(--text-light); 
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.page-hero-overlay p {
+    font-family:  'Abril Fatface', serif; 
+    font-size: 2.0em; 
+    max-width: 600px; 
+    color: var(--text-subtle);
+    line-height: 1.3;
+    font-weight: 300; 
+    letter-spacing: 0.03em; 
+}
+
+/* Seção de Contato principal */
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px; 
+   padding: 80px 100px; 
+    max-width: 1400px;
+    margin: 0 auto 80px auto;
+}
+
+.contact-info, .contact-form-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+    background-color: var(--dark-secondary);
+    padding: 50px;
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); 
+    border: 1px solid var(--accent-charcoal); 
+    text-align: left; 
+}
+
+.contact-info h2, .contact-form-container h2 {
+    font-family: 'Abril Fatface', serif; 
+    font-size: 3em; 
+    color: var(--text-light); 
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-align: left; 
+}
+
+.info-item {
+    margin-bottom: 30px; 
+    line-height: 1.5;
+}
+
+.info-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em; 
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.info-item span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em; /* Ligeiramente maior */
+    color: var(--text-subtle);
+    display: block;
+}
+
+.social-contact {
+    margin-top: 50px;
+    border-top: 1px dashed var(--accent-charcoal); /* Linha mais sutil */
+    padding-top: 30px;
+    text-align: left; /* Alinhe à esquerda */
+}
+
+.social-contact p {
+    font-family: 'Poppins', sans-serif; /* Mude para Poppins */
+    font-size: 1.2em;
+    color: var(--ferrari-red-subtle);
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.social-contact a {
+    display: inline-block;
+    margin-right: 25px; /* Mais espaçamento entre ícones */
+    transition: transform 0.3s ease;
+    font-size: 42px; /* Tamanho do ícone Font Awesome */
+    color: var(--ferrari-red-subtle); /* Cor padrão dos ícones */
+}
+
+.social-contact a:hover {
+    transform: translateY(-5px) scale(1.15); /* Efeito mais dramático */
+}
+
+.social-contact a .fab {
+    color: var(--text-subtle); /* Ícones acinzentados por padrão */
+    filter: brightness(0.8);
+    transition: all 0.3s ease;
+}
+
+.social-contact a:hover .fab {
+    color: var(--ferrari-red-subtle); /* Brilho dourado no hover */
+    filter: brightness(1.2) drop-shadow(0 0 12px var(--ferrari-red-subtle));
+}
+
+
+/* Formulário de Contato */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05em;
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 16px; /* Mais padding */
+    background-color: #0F0F0F; /* Fundo mais escuro para inputs */
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder, /* Estilo para placeholders */
+.form-group textarea::placeholder {
+    color: rgba(204, 204, 204, 0.6); /* Cor mais clara para o placeholder */
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 16px; /* Mais padding */
+    background-color: #0F0F0F; /* Fundo mais escuro para inputs */
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* --- Adicione esta linha: --- */
+    resize: none; /* Impede que o usuário redimensione o textarea */
+}
+
+.contact-form .btn-cta {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1em;
+    margin-top: 20px;
+    background: linear-gradient(45deg, var(--text-light), var(--text-light)); /* Gradiente dourado */
+    color: var(--dark-primary); /* Texto escuro no botão dourado */
+    font-family: 'Oswald', sans-serif; /* Ou Poppins bold */
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 8px; /* Cantos arredondados */
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(107, 34, 34, 0.4);
+}
+
+.contact-form .btn-cta:hover {
+    background: linear-gradient(45deg, var(--accent-bronze), var(--accent-gold)); /* Inverte o gradiente no hover */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Seção de Mapa */
+.map-section {
+    text-align: center;
+    padding: 80px 100px;
+    background-color: var(--dark-secondary); /* Fundo da seção do mapa */
+    margin-bottom: 100px;
+    box-shadow: inset 0 8px 25px rgba(0, 0, 0, 0.8); /* Sombra interna mais forte */
+}
+
+.map-section h2 {
+    font-family: 'Abril Fatface', serif; /* Use Abril Fatface */
+    font-size: 3.5em;
+    color: #CCCCCC; /* Título dourado */
+    margin-bottom: 50px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.map-container {
+    background-color: #111;
+    border: 2px solid var(--text-light); /* Borda dourada no mapa */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-primary); /* Fundo preto profundo */
+    padding: 40px 0;
+    border-top: 1px solid var(--ferrari-red-subtle); /* Borda sutil */
+    text-align: center;
+    color: var(--text-subtle);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    color: var(--text-subtle);
+}
+
+footer .social-links {
+    margin-bottom: 20px;
+}
+
+footer .social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 32px; /* Tamanho dos ícones no footer */
+    color: var(--accent-gold); /* Cor dourada padrão no footer */
+    transition: all 0.3s ease;
+}
+
+footer .social-links a .fab {
+    color: var(--text-subtle); /* Ícones acinzentados no footer */
+    filter: brightness(0.8);
+    transition: all 0.3s ease;
+}
+
+footer .social-links a:hover .fab {
+    color: var(--accent-gold); /* Dourado no hover */
+    filter: brightness(1.2) drop-shadow(0 0 8px var(--accent-gold));
+    transform: translateY(-3px);
+}
+
+/* Responsividade para contato.css */
+@media (max-width: 1200px) {
+    .contact-section { padding: 60px 50px; gap: 40px; }
+    .contact-info h2, .contact-form-container h2 { font-size: 2.2em; }
+    .info-item p { font-size: 1em; }
+    .info-item span { font-size: 0.9em; }
+    .social-contact a { font-size: 38px; margin-right: 20px;}
+    .map-section { padding: 50px 50px; }
+    .map-section h2 { font-size: 2.5em; }
+}
+
+@media (max-width: 768px) {
+    .page-hero-overlay h1 { font-size: 3.5em; }
+    .page-hero-overlay p { font-size: 1.4em; }
+    .contact-section {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+    .contact-info, .contact-form-container {
+        min-width: unset;
+        max-width: 100%;
+        padding: 30px;
+    }
+    .contact-info h2, .contact-form-container h2 { font-size: 2em; text-align: center;} /* Centraliza em telas menores */
+    .info-item { margin-bottom: 20px; }
+    .social-contact { text-align: center; } /* Centraliza em telas menores */
+    .social-contact a { font-size: 34px; margin: 0 15px; }
+    .map-section { padding: 40px 20px; margin-bottom: 60px; }
+    .map-section h2 { font-size: 2.2em; }
+    .map-container iframe { height: 350px; }
+    footer .social-links a { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+    .page-hero-overlay h1 { font-size: 2.5em; }
+    .page-hero-overlay p { font-size: 1.1em; }
+    .contact-section { padding: 30px 15px; gap: 20px; }
+    .contact-info h2, .contact-form-container h2 { font-size: 1.8em; }
+    .info-item p { font-size: 0.9em; }
+    .info-item span { font-size: 0.8em; }
+    .social-contact p { font-size: 1.1em; }
+    .social-contact a { font-size: 28px; margin: 0 10px; }
+    .contact-form .btn-cta { padding: 12px; font-size: 0.9em; }
+    .map-section { padding: 30px 15px; }
+    .map-section h2 { font-size: 1.8em; }
+    .map-container iframe { height: 250px; }
+    footer p { font-size: 0.8em; }
+    footer .social-links a { font-size: 24px; }
+}
